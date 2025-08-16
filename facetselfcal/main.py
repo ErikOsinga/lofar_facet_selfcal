@@ -2714,7 +2714,8 @@ def run(command, log=False, log_to_file_instead_stdout=False):
         # Open the file for writing
         with open(logfile, "w", encoding="utf-8") as f:
             print(f"Logging WSclean output to file {logfile}")
-            subprocess.run(command, shell=True, stdout=f, stderr=subprocess.STDOUT)
+            logger.info(f"Logging WSclean output to file {logfile}")
+            process = subprocess.run(command, shell=True, stdout=f, stderr=subprocess.STDOUT)
 
 
     retval = process.returncode
